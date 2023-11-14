@@ -1,0 +1,3 @@
+./app_service/node_modules
+./rest_service/node_modules
+./soap_service/node_modules

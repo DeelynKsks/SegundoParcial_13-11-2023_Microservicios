@@ -1,0 +1,38 @@
+<definitions name="ConsultarAlumnosService"
+        targetNamespace="http://localhost:8888/consultar_con_soap"
+        axmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://localhost:8888/consultar_con_soap"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <message name="consultarAlumnosRequest"/>
+    <message name="consultarAlumnosResponse">
+        <part name="alumnos" type="xsd:string"/>
+    </message>
+    <portType name="ConsultarAlumnosPortType">
+        <operation name="consultarAlumnos">
+            <input message="tns:consultarAlumnosRequest"/>
+            <output message="tns:consultarAlumnosResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="ConsultarAlumnosBinding" type="tns:ConsultarAlumnosPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="consultarAlumnos">
+            <soap:operation soapAction="urn:consultarAlumnos"/>
+            <input>
+                <soap:body use="encoded" namespace="urn:consultarAlumnos" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:consultarAlumnos" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="ConsultarAlumnosService">
+        <port name="ConsultarAlumnosPort" binding="tns:ConsultarAlumnosBinding">
+            <soap:address location="http://localhost:8888/consultar_con_soap"/>
+        </port>
+    </service>
+
+</definitions>

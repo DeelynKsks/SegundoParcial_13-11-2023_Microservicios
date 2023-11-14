@@ -72,7 +72,6 @@ function App() {
             console.log('Persona extraída:', persona);
             return persona;
           });        
-          console.log("Datos recibidos del servicio SOAP", personas);
           setPersonas(personas);
         } catch (error) {
             console.error(error);
@@ -151,7 +150,7 @@ function App() {
           }}>
             <h2>Lista de personas:</h2>
             <h5>Si no se cargan los datos inmediatamente, espere unos momentos y actualice la página</h5>
-            <button onClick={() => updateTable}>Actualizar Tabla</button>
+            <button onClick={updateTable}>Actualizar Tabla</button>
             <br />
             <br />
             <table id="soapTable" border="1" style={{
